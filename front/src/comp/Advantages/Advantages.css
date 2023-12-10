@@ -1,5 +1,5 @@
 .hero-advantage {
-  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\banner-bg-why-transglobal.jpg");
+  background-image: url("../../media/banner-bg-why-transglobal.jpg");
 }
 .adv-h1 {
   color: var(--neworange);
@@ -29,7 +29,7 @@
   padding-block: 2rem;
 }
 .img-half-adv-2 {
-  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\adv-side.jpg");
+  background-image: url("../../media/adv-side.jpg");
 }
 .img-heading-half > h2 {
   position: relative;

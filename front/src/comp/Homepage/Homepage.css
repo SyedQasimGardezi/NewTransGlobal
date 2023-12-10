@@ -6,7 +6,7 @@
   height: 100vh;
 }
 .homepage-hero {
-  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\na2.jpeg");
+  background-image: url("../../media/na2.jpeg");
   background-position: 30% 70%;
 }
 .hero-adjust {
@@ -76,14 +76,14 @@ p {
   background-color: var(--primary);
 }
 .img-half-1 {
-  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\3.jpg");
+  background-image: url("../../media/3.jpg");
   background-position: 60% 70%;
 }
 .data-half-2 {
   background-color: var(--newwhite);
 }
 .img-half-2 {
-  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\sky1.jpg");
+  background-image: url("../../media/sky1.jpg");
   background-position: 20% 50%;
 }
 

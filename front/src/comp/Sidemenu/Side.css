@@ -9,9 +9,7 @@
   height: 20vh;
   display: grid;
   place-items: center;
-  /* background-color: var(--yellow); */
   background-color: var(--newwhite);
-  /* background-color: #fd9800; */
 }
 .bg-change {
   background-color: red;
@@ -42,7 +40,6 @@
   position: relative;
 }
 .element-side:hover {
-  /* background-color: var(--yellow); */
   background-color: #fd9800;
 }
 .side-h2 {
@@ -72,12 +69,10 @@
 }
 .show {
   display: grid;
-  /* background-color: var(--yellow); */
   background-color: #fd9800;
   border-top: black 0.5px solid;
 }
 .show:hover {
-  /* background-color: var(--yellowHover); */
   background-color: #fd9800ec;
 }
 .hover {

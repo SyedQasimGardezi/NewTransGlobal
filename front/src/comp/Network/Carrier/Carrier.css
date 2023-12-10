@@ -1,11 +1,11 @@
 .carrier-hero {
-  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\owner-half.jpg");
+  background-image: url("../../../media/owner-half.jpg");
 
   background-position: 70% 55%;
 }
 
 .img-half-carrier {
-  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\na2.jpg");
+  background-image: url("../../../media/na2.jpg");
 }
 
 .img-half-carrier > h2 {

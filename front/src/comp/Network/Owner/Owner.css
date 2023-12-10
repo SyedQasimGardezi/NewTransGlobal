@@ -1,10 +1,10 @@
 .owner-hero {
-  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\5.jpg");
+  background-image: url("../../../media/5.jpg");
   background-position: top;
 }
 
 .img-half-owner {
-  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\owner-half.jpg");
+  background-image: url("../../../media/owner-half.jpg");
 }
 .newwhite {
   color: var(--newwhite);

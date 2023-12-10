@@ -1,5 +1,5 @@
 .dispatch-hero {
-  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\hero.jpg");
+  background-image: url("../../../media/hero.jpg");
   background-position: center;
 }
 .halves-dispatch {
@@ -16,7 +16,7 @@
   flex: 35%;
 }
 .img-half-dispatch {
-  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\network-carrier.jpg");
+  background-image: url("../../../media/network-carrier.jpg");
   background-position: center;
 }
 @media screen and (max-width: 800px) {

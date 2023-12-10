@@ -8,19 +8,11 @@ body,
   overflow-x: hidden;
 }
 :root {
-  /* --primary: #0070ba; */
-  /* --primary: orange; */
   --primary: whitesmoke;
-  /* --darkblue: #004589; */
-  /* --darkblue: rgb(255, 149, 0); */
   --darkblue: white;
-  /* --yellow: #eeaa0f; */
-  /* --yellow: #0070ba; */
   --yellow: gray;
-  /* --yellowHover: #f2bd0dcb; */
   --yellowHover: rgba(88, 86, 86, 0.846);
   --white: rgb(0, 0, 0);
-  /* --white: white ; */
   --black: #0000;
   --newwhite: #fff;
   --gray: #202020;

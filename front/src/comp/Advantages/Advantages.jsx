@@ -1,5 +1,6 @@
 import React from "react";
 import "./Advantages.css";
+import infograficimg from "../../media//infographic.png";
 export default function Advantages() {
   return (
     <div className="content">
@@ -33,7 +34,7 @@ export default function Advantages() {
         <div className="img-half img-half-adv-1">
           <img
             className="adv-1-img"
-            src="https://www.landstar.com/Content/img/infographic.png"
+            src={infograficimg}
             alt="information Graphical"
           />
         </div>
