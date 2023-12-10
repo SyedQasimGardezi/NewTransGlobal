@@ -22,11 +22,10 @@ export default function Quote() {
         },
         ((subBtnCustomer.current.value = "SUBMITTED"),
         (subBtnCustomer.current.style.backgroundColor = "green"),
-        document.getElementById("myFormCustomer").reset(),
-        console.log(customerform))
+        document.getElementById("myFormCustomer").reset())
       )
       .catch(function (error) {
-        console.log(error);
+        console.log("error: " + error);
       });
   }
   async function handleSubmitDriver(e) {
@@ -121,7 +120,7 @@ export default function Quote() {
                     required
                   />
                 </div>
-                <div className="form-row">
+                {/* <div className="form-row">
                   <label>Last Name*</label>
                   <input
                     type="text"
@@ -242,7 +241,7 @@ export default function Quote() {
                     required
                     onChange={handleFormDriver}
                   />
-                </div>
+                </div> */}
                 <div className="form-row">
                   <label>Notice of Assignment/Void Cheque*</label>
                   <input

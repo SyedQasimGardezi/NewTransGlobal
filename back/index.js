@@ -4,13 +4,12 @@ const dotenv = require("dotenv").config();
 const multer = require("multer");
 const { GridFsStorage } = require("multer-gridfs-storage");
 const app = express();
-
 const mongoose = require("mongoose");
 
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/TransGlobal");
+  await mongoose.connect(process.env.mongo_url);
   console.log("db connected");
 }
 
@@ -60,8 +59,8 @@ const driverSchema = new mongoose.Schema({
   phone: String,
   w9form: Buffer,
   coi: Buffer,
-  mc: String,
-  noa: String,
+  mc: Buffer,
+  noa: Buffer,
 });
 
 const Driver = mongoose.model("Driver", driverSchema);
