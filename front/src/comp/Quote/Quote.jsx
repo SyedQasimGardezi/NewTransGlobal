@@ -83,7 +83,7 @@ export default function Quote() {
                 onChange={handleFormCustomer}
               />
             </div>
-            {/*<div className="form-row">
+            <div className="form-row">
               <label>Message*</label>
               <textarea
                 name="customermessage"
@@ -93,7 +93,7 @@ export default function Quote() {
                 style={{ resize: "none" }}
                 onChange={handleFormCustomer}
               ></textarea>
-            </div> */}
+            </div>
             <div className="submit-row">
               <input
                 ref={subBtnCustomer}
@@ -120,7 +120,7 @@ export default function Quote() {
                     required
                   />
                 </div>
-                {/* <div className="form-row">
+                <div className="form-row">
                   <label>Last Name*</label>
                   <input
                     type="text"
@@ -241,7 +241,7 @@ export default function Quote() {
                     required
                     onChange={handleFormDriver}
                   />
-                </div> */}
+                </div>
                 <div className="form-row">
                   <label>Notice of Assignment/Void Cheque*</label>
                   <input
