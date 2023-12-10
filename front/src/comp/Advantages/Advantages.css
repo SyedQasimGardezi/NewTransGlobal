@@ -16,7 +16,6 @@
   color: var(--neworange);
 }
 .img-half-adv-1 {
-  /* background-color: var(--darkblue); */
   display: grid;
   place-items: center;
   background-color: whitesmoke;
