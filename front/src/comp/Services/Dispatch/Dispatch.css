@@ -1,0 +1,33 @@
+.dispatch-hero {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\hero.jpg");
+  background-position: center;
+}
+.halves-dispatch {
+  height: 100vh;
+  display: flex;
+}
+.halves-dispatch > .data-half {
+  flex: 65%;
+}
+.white {
+  color: var(--newwhite);
+}
+.halves-dispatch > .img-half {
+  flex: 35%;
+}
+.img-half-dispatch {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\network-carrier.jpg");
+  background-position: center;
+}
+@media screen and (max-width: 800px) {
+  .halves-dispatch {
+    display: grid;
+    min-height: 200vh;
+  }
+  .halves-dispatch > .data-half {
+    height: 150vh;
+  }
+  .halves-dispatch > .img-half {
+    height: 50vh;
+  }
+}

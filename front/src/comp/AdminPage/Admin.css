@@ -1,0 +1,9 @@
+.admin-main {
+  padding-top: 20vh;
+  padding-left: 10vh;
+  background-color: var(--darkblue);
+}
+.admin-list {
+  color: white;
+  display: grid;
+}

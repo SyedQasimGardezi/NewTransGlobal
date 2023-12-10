@@ -1,0 +1,58 @@
+.hero-advantage {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\banner-bg-why-transglobal.jpg");
+}
+.adv-h1 {
+  color: var(--neworange);
+  text-align: left;
+}
+.adv-p {
+  color: black;
+  width: 40%;
+}
+.data-half-adv-1 {
+  background-color: var(--darkblue);
+}
+.data-half-adv-1 > div > h2 {
+  color: var(--neworange);
+}
+.img-half-adv-1 {
+  /* background-color: var(--darkblue); */
+  display: grid;
+  place-items: center;
+  background-color: whitesmoke;
+}
+.data-half-adv-2 {
+  background-color: whitesmoke;
+}
+.data-half-adv-2 > div > p {
+  color: black;
+  padding-block: 2rem;
+}
+.img-half-adv-2 {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\adv-side.jpg");
+}
+.img-heading-half > h2 {
+  position: relative;
+  top: 7rem;
+  left: 2rem;
+  text-shadow: 1px 1px black;
+  color: var(--neworange);
+}
+@media screen and (max-width: 800px) {
+  .adv-p {
+    width: 100%;
+  }
+  .adv-1-img {
+    height: 70%;
+  }
+
+  .data-half-adv-2 {
+    height: 100vh;
+  }
+  .img-heading-half > h2 {
+    top: 80%;
+    left: 2rem;
+    word-wrap: break-word;
+    font-size: var(--h1M);
+  }
+}

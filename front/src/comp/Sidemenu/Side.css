@@ -1,0 +1,113 @@
+.side {
+  position: fixed;
+  min-height: 100vh;
+  width: 7.5vw;
+  background-color: var(--gray);
+  transition: all 0.2s ease-in;
+}
+.side-logo {
+  height: 20vh;
+  display: grid;
+  place-items: center;
+  /* background-color: var(--yellow); */
+  background-color: var(--newwhite);
+  /* background-color: #fd9800; */
+}
+.bg-change {
+  background-color: red;
+}
+.elements {
+  height: 70vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.elements::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.elements {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.element-side {
+  color: var(--newwhite);
+  height: 12.5vh;
+  display: flex;
+  padding-inline: 2vw;
+  align-items: center;
+  transition: all 0.2s ease-in;
+}
+.element-side > img {
+  position: relative;
+}
+.element-side:hover {
+  /* background-color: var(--yellow); */
+  background-color: #fd9800;
+}
+.side-h2 {
+  font-size: var(--h2);
+  display: none;
+  margin: 0;
+  height: 12.5vh;
+  align-items: center;
+  width: 100%;
+  transition: all 1s ease-in;
+}
+
+.wrapper {
+  display: grid;
+  height: 100%;
+  width: 100%;
+}
+
+.sub {
+  display: none;
+  height: 10vh;
+}
+.sub > .side-h2 {
+  height: 8vh;
+  position: relative;
+  left: 4.5vw;
+}
+.show {
+  display: grid;
+  /* background-color: var(--yellow); */
+  background-color: #fd9800;
+  border-top: black 0.5px solid;
+}
+.show:hover {
+  /* background-color: var(--yellowHover); */
+  background-color: #fd9800ec;
+}
+.hover {
+  background-color: var(--yellow);
+}
+.side-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: var(--lightgray);
+  height: 20vh;
+  width: 7.5vw;
+  display: grid;
+  grid-template-columns: auto auto;
+  place-items: center;
+  transition: all 0.2s ease-in;
+}
+.side:hover {
+  width: 20vw;
+}
+.side:hover .side-footer {
+  width: 20vw;
+  height: 10vh;
+  grid-template-columns: auto auto auto;
+}
+.side:hover .side-h2 {
+  display: flex;
+  opacity: 100%;
+}
+.side:hover .element-side {
+  padding-right: 0;
+  column-gap: 1rem;
+}

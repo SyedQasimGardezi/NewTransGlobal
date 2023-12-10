@@ -1,0 +1,19 @@
+.data-half-agent > div > div > p {
+  color: black;
+}
+.agent-hero {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\sky2.jpg");
+  background-position: 50% 50%;
+}
+.img-half-agent {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\bruce.jpg");
+  background-position: 50% 60%;
+}
+@media screen and (max-width: 800px) {
+  .data-half-agent {
+    min-height: 100vh;
+  }
+  .img-half-agent {
+    min-height: 40vh;
+  }
+}

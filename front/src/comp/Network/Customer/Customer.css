@@ -1,0 +1,29 @@
+.customer-hero {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\carriers.jpg");
+}
+.half-p {
+  width: 50%;
+}
+.neworange {
+  color: var(--neworange);
+}
+.customer-half-data {
+  color: var(--newblack);
+}
+.data-half-customer {
+  background-color: var(--newwhite);
+}
+.data-half-customer > div > p {
+  color: black;
+}
+.img-half-customer {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\na3.jpg");
+}
+@media screen and (max-width: 800px) {
+  .half-p {
+    width: 100%;
+  }
+  .data-half-customer {
+    min-height: 90vh;
+  }
+}

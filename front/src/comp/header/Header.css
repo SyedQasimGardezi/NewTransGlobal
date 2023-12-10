@@ -1,0 +1,121 @@
+.header-card {
+  position: absolute;
+  top: 0;
+  right: 10%;
+}
+.header {
+  display: flex;
+  list-style: none;
+  font-size: var(--h2);
+  font-weight: bold;
+  column-gap: 2rem;
+  height: 20vh;
+  align-items: center;
+  color: var(--white);
+}
+.header-btn {
+  background-color: transparent;
+  text-transform: uppercase;
+  border: solid 3px var(--yellow);
+  border-radius: 1.43rem;
+  width: 15rem;
+  height: 2.5rem;
+  cursor: pointer;
+  color: var(--white);
+  font-weight: bold;
+  font-size: var(--h2);
+  transition: 0.2s all ease-in;
+}
+.header-btn:hover {
+  color: var(--primary);
+  background-color: var(--yellow);
+}
+li:hover {
+  text-decoration: underline;
+}
+
+.header-mobile,
+.mob-nav {
+  display: none;
+}
+@media (hover: none), (max-width: 800px) {
+  .header {
+    display: none;
+  }
+  .header-card {
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+  .header-mobile {
+    display: flex;
+    width: 100vw;
+    z-index: 999999;
+    height: 12.5vh;
+    background-color: var(--gray);
+    justify-content: space-between;
+    align-items: center;
+  }
+  .fixed {
+    position: fixed;
+  }
+  .mob-logo {
+    background-color: var(--primary);
+    height: 12.5vh;
+    display: flex;
+    padding-inline: 1.5rem;
+    align-items: center;
+  }
+  .mob-ham {
+    padding-inline: 1.5rem;
+  }
+  .mob-nav {
+    display: none;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    padding-top: 12.5vh;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background-color: var(--gray);
+  }
+  .mob-elements {
+    height: 87.5vh;
+    overflow: auto;
+  }
+
+  .mob-nav-element {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding-inline: 2rem;
+    column-gap: 1.5rem;
+    color: #ebebeb;
+    font-size: 14px;
+    align-items: center;
+    height: 10vh;
+    border-top: 1px var(--lightgray) solid;
+  }
+  .mob-nav-button {
+    width: 80vw;
+    margin: 5vw 10vw 10vw 10vw;
+  }
+  .sub-mob-nav {
+    height: 7.5vh;
+    font-size: 12px;
+    font-weight: 100;
+    border: none;
+  }
+  .hidden {
+    display: grid;
+  }
+  .side-footer-mob {
+    background-color: var(--lightgray);
+    display: grid;
+    grid-template-columns: auto auto auto;
+    place-items: center;
+    height: 10vh;
+    width: 100vw;
+  }
+}

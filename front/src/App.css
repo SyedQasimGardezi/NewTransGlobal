@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@300&display=swap");
+
+.alignment {
+  display: grid;
+  grid-template-columns: 7.5vw 92.5vw;
+  transition: all 0.2s ease-in;
+}
+.adjust-side {
+  pointer-events: auto;
+}
+.adjust-side:hover {
+  width: 20vw;
+}
+.alignment:has(.adjust-side:hover) {
+  display: grid;
+  grid-template-columns: 20vw 80vw;
+}
+h1 {
+  font-size: var(--h1D);
+  margin: 0;
+  color: var(--white);
+}
+.h1 {
+  font-size: var(--h1D);
+  margin: 0;
+  color: var(--white);
+  font-family: "Oswald", sans-serif;
+}
+
+.main-heading::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  transform: translateY(-15px);
+}
+.main-heading-blue::before {
+  background-color: var(--primary);
+}
+.main-heading-yellow::before {
+  background-color: var(--yellow);
+}
+p {
+  font-family: "Poppins", sans-serif;
+  font-size: var(--p);
+}
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: var(--h1M);
+  }
+  .h1 {
+    font-size: var(--h1M);
+  }
+  p {
+    font-size: calc(var(--p) * 1);
+    width: 100%;
+  }
+}
+@media (min-width: 801px) and (max-width: 1000px) {
+  p {
+    font-size: calc(var(--p) * 1.5);
+  }
+}
+@media screen and (min-width: 1600px) {
+  h1 {
+    font-size: calc(var(--h1D) * 1.5);
+  }
+  .h1 {
+    font-size: calc(var(--h1D) * 1.5);
+  }
+  p {
+    font-size: calc(var(--p) * 2);
+  }
+}
+@media (hover: none), (max-width: 800px) {
+  .adjust-side {
+    display: none;
+  }
+  .alignment {
+    grid-template-columns: auto;
+  }
+}

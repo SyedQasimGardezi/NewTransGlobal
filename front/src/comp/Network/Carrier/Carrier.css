@@ -1,0 +1,19 @@
+.carrier-hero {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\owner-half.jpg");
+
+  background-position: 70% 55%;
+}
+
+.img-half-carrier {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\na2.jpg");
+}
+
+.img-half-carrier > h2 {
+  color: var(--neworange);
+  text-shadow: black 1px 1px;
+}
+@media screen and (max-width: 800px) {
+  .img-half-carrier {
+    background-position: bottom;
+  }
+}

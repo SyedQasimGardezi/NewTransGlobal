@@ -1,0 +1,35 @@
+.ser-data-network {
+  padding-top: 70%;
+}
+.ser-data-network > .p-hidden {
+  min-height: 20vh;
+}
+.net-heading {
+  pointer-events: none;
+  color: var(--neworange);
+  padding-top: 12.5vh;
+  padding-left: 1vw;
+}
+.network-img-customer {
+  /* background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\network-customer.jpg"); */
+  background-color: whitesmoke;
+}
+.network-img-agent {
+  /* background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\network-agent.jpg"); */
+  background-color: var(--newwhite);
+}
+.network-img-owner {
+  background-color: whitesmoke;
+  /* background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\network-owner.jpg"); */
+  background-size: cover;
+}
+.network-img-carrier {
+  /* background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\network-carrier.jpg"); */
+  background-color: var(--newwhite);
+}
+
+@media screen and (max-width: 800px) {
+  .ser-data-network {
+    padding-top: 10%;
+  }
+}

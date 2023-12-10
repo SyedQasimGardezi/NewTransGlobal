@@ -1,0 +1,16 @@
+.owner-hero {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\5.jpg");
+  background-position: top;
+}
+
+.img-half-owner {
+  background-image: url("C:\Users\shahq\OneDrive\Desktop\react js\transglobal\front\src\media\owner-half.jpg");
+}
+.newwhite {
+  color: var(--newwhite);
+}
+@media screen and (max-width: 800px) {
+  .blue-mob-hero {
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 150, 0.3);
+  }
+}
