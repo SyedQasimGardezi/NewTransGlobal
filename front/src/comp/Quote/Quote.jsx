@@ -59,7 +59,7 @@ export default function Quote() {
             freight needs. Please provide as much information as possible about
             your freight or shipping needs - date, description of product,
             size/weight of over-dimensional freight, etc. For information on
-            Landstar's treatment of information that you provide through this
+            TransGlobal's treatment of information that you provide through this
             website
           </p>
           <form id="myFormCustomer" onSubmit={handleSubmitCustomer}>
