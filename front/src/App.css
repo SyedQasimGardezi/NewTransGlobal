@@ -63,13 +63,13 @@ p {
 }
 @media screen and (min-width: 1600px) {
   h1 {
-    font-size: calc(var(--h1D) * 1.5);
+    font-size: calc(var(--h1D) * 1.2);
   }
   .h1 {
-    font-size: calc(var(--h1D) * 1.5);
+    font-size: calc(var(--h1D) * 1.2);
   }
   p {
-    font-size: calc(var(--p) * 2);
+    font-size: calc(var(--p) * 1.2);
   }
 }
 @media (hover: none), (max-width: 800px) {
