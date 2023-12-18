@@ -1,10 +1,15 @@
+// server.js
 const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv").config();
-const multer = require("multer");
-const { GridFsStorage } = require("multer-gridfs-storage");
-const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
+const multer = require("multer");
+const path = require("path");
+const dotenv = require("dotenv").config();
+const fs = require("fs");
+
+const app = express();
+app.use(cors());
+const PORT = 8000;
 
 main().catch((err) => console.log(err));
 
@@ -13,92 +18,159 @@ async function main() {
   console.log("db connected");
 }
 
-app.use(cors());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-const customerSchema = new mongoose.Schema({
-  fullname: String,
-  customerphone: String,
-  customermessage: String,
+const customer = mongoose.model("CustomerModel", {
+  name: String,
+  phone: String,
+  message: String,
 });
+app.post("/customerPost", async (req, res) => {
+  try {
+    const doc = new customer({
+      name: req.body.name,
+      phone: req.body.phone,
+      message: req.body.message,
+    });
+    const savedDocument = await doc.save();
 
-const Customer = mongoose.model("Customer", customerSchema);
-
-app.post(
-  "/customer",
-  async (req, res) => {
-    let customer = new Customer();
-    customer.fullname = req.body.form.fullname;
-    customer.customerphone = req.body.form.customerphone;
-    customermessage.title = req.body.form.customermessage;
-    const docCustomer = await customer.save();
-    console.log(docCustomer);
-    res.json(docCustomer);
-  },
-  (res) => {
-    res.json("Submitted");
+    res.status(200).json({
+      message: "Form submitted successfully",
+    });
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
-);
-app.get("/customer", async (req, res) => {
-  const docsCustomer = await Customer.find({});
-  res.json(docsCustomer);
-  console.log(docsCustomer);
 });
 
-const driverSchema = new mongoose.Schema({
+const YourModel = mongoose.model("YourModel", {
   firstname: String,
   lastname: String,
   title: String,
   company: String,
   email: String,
+  phone: String,
+  mcno: String,
   city: String,
   state: String,
-  mcnumber: String,
-  zip: Number,
-  phone: String,
-  w9form: Buffer,
-  coi: Buffer,
-  mc: Buffer,
-  noa: Buffer,
+  zip: String,
+  w9form: String,
+  coi: String,
+  mc: String,
+  noa: String,
 });
 
-const Driver = mongoose.model("Driver", driverSchema);
+const storage = multer.diskStorage({
+  destination: "./uploads",
+  filename: function (req, file, cb) {
+    cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.use(express.json());
+app.use("/uploads", express.static("uploads"));
 
 app.post(
-  "/driver",
+  "/submitForm",
+  upload.fields([
+    { name: "fileInput1", maxCount: 1 },
+    { name: "fileInput2", maxCount: 1 },
+    { name: "fileInput3", maxCount: 1 },
+    { name: "fileInput4", maxCount: 1 },
+  ]),
   async (req, res) => {
-    let user = new Driver();
-    user.firstname = req.body.form.firstname;
-    user.lastname = req.body.form.lastname;
-    user.title = req.body.form.title;
-    user.company = req.body.form.company;
-    user.email = req.body.form.email;
-    user.city = req.body.form.city;
-    user.state = req.body.form.state;
-    user.mcnumber = req.body.form.mcnumber;
-    user.zip = req.body.form.zip;
-    user.phone = req.body.form.phone;
-    user.w9form = req.body.form.w9form;
-    user.coi = req.body.form.coi;
-    user.mc = req.body.form.mc;
-    user.noa = req.body.form.noa;
-    const doc = await user.save();
-    console.log(doc);
-    res.json(doc);
-  },
-  (res) => {
-    res.json("Submitted");
+    try {
+      const newDocument = new YourModel({
+        firstname: req.body.textInput1,
+        lastname: req.body.textInput2,
+        title: req.body.textInput3,
+        company: req.body.textInput4,
+        email: req.body.textInput5,
+        phone: req.body.textInput6,
+        mcno: req.body.textInput7,
+        city: req.body.textInput8,
+        state: req.body.textInput9,
+        zip: req.body.textInput10,
+        w9form: req.files["fileInput1"] ? req.files["fileInput1"][0].path : "",
+        coi: req.files["fileInput2"] ? req.files["fileInput2"][0].path : "",
+        mc: req.files["fileInput3"] ? req.files["fileInput3"][0].path : "",
+        noa: req.files["fileInput4"] ? req.files["fileInput4"][0].path : "",
+      });
+
+      const savedDocument = await newDocument.save();
+
+      res.status(200).json({
+        message: "Form submitted successfully",
+        fileId: savedDocument._id,
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
   }
 );
 
-app.get("/driver", async (req, res) => {
-  const docs = await Driver.find({});
-  res.json(docs);
-  console.log(docs);
-});
-const port = 8000;
+app.get("/getFile/:id/:fileIndex", async (req, res) => {
+  try {
+    const document = await YourModel.findById(req.params.id);
 
-app.listen(port, () => {
-  console.log("appstarted");
+    if (!document) {
+      return res.status(404).json({ error: "File not found" });
+    }
+
+    const fileIndex = parseInt(req.params.fileIndex, 10);
+    let filePath = "";
+
+    switch (fileIndex) {
+      case 1:
+        filePath = document.fileInput1;
+        break;
+      case 2:
+        filePath = document.fileInput2;
+        break;
+      case 3:
+        filePath = document.fileInput3;
+        break;
+      case 4:
+        filePath = document.fileInput4;
+        break;
+      default:
+        return res.status(400).json({ error: "Invalid file index" });
+    }
+
+    const fileStream = fs.createReadStream(filePath);
+
+    const fileExtension = path.extname(filePath).toLowerCase();
+    let contentType = "application/octet-stream";
+
+    if (fileExtension === ".pdf") {
+      contentType = "application/pdf";
+    } else if (fileExtension === ".doc" || fileExtension === ".docx") {
+      contentType = "application/msword";
+    } else if (fileExtension.match(/\.(jpg|jpeg|png|gif)$/)) {
+      contentType = "image/jpeg";
+    }
+
+    res.setHeader("Content-Type", contentType);
+    fileStream.pipe(res);
+  } catch (error) {
+    console.error("Error retrieving file:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.get("/getData", async (req, res) => {
+  try {
+    const allData = await YourModel.find();
+    res.status(200).json(allData);
+  } catch (error) {
+    console.error("Error retrieving all data:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });

@@ -2,48 +2,107 @@ import React, { useRef, useState } from "react";
 import "./Quote.css";
 import axios from "axios";
 export default function Quote() {
-  const [form, setForm] = useState([]);
-  const [customerform, setCustomerform] = useState([]);
   const subBtn = useRef();
   const subBtnCustomer = useRef();
-  function handleFormCustomer(e) {
-    setCustomerform({ ...customerform, [e.target.name]: e.target.value });
-  }
-  function handleFormDriver(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
-  async function handleSubmitCustomer(e) {
+
+  const [customerformData, setCustomerFormData] = useState({
+    name: "",
+    phone: "",
+    message: "",
+  });
+  const handleChangeCustomer = (e) => {
+    setCustomerFormData({
+      ...customerformData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const customerHandleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post(
-        "http://localhost:8000/customer",
-        {
-          customerform: customerform,
-        },
-        ((subBtnCustomer.current.value = "SUBMITTED"),
-        (subBtnCustomer.current.style.backgroundColor = "green"),
-        document.getElementById("myFormCustomer").reset())
-      )
-      .catch(function (error) {
-        console.log("error: " + error);
-      });
-  }
-  async function handleSubmitDriver(e) {
+
+    const customerformDataToSend = new FormData();
+    customerformDataToSend.append("name", customerformData.name);
+    customerformDataToSend.append("email", customerformData.email);
+    customerformDataToSend.append("message", customerformData.message);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/customerPost",
+        customerformDataToSend
+      );
+
+      console.log("Form submitted successfully:", response.data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+
+  const [formData, setFormData] = useState({
+    textInput1: "",
+    textInput2: "",
+    textInput3: "",
+    textInput4: "",
+    textInput5: "",
+    textInput6: "",
+    textInput7: "",
+    textInput8: "",
+    textInput9: "",
+    textInput10: "",
+    fileInput1: null,
+    fileInput2: null,
+    fileInput3: null,
+    fileInput4: null,
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleFileChange = (e, fileInput) => {
+    setFormData({
+      ...formData,
+      [fileInput]: e.target.files[0],
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post(
-        "http://localhost:8000/driver",
+
+    const formDataToSend = new FormData();
+    formDataToSend.append("textInput1", formData.textInput1);
+    formDataToSend.append("textInput2", formData.textInput2);
+    formDataToSend.append("textInput3", formData.textInput3);
+    formDataToSend.append("textInput4", formData.textInput4);
+    formDataToSend.append("textInput5", formData.textInput5);
+    formDataToSend.append("textInput6", formData.textInput6);
+    formDataToSend.append("textInput7", formData.textInput7);
+    formDataToSend.append("textInput8", formData.textInput8);
+    formDataToSend.append("textInput9", formData.textInput9);
+    formDataToSend.append("textInput10", formData.textInput10);
+    formDataToSend.append("fileInput1", formData.fileInput1);
+    formDataToSend.append("fileInput2", formData.fileInput2);
+    formDataToSend.append("fileInput3", formData.fileInput3);
+    formDataToSend.append("fileInput4", formData.fileInput4);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/submitForm",
+        formDataToSend,
         {
-          form: form,
-        },
-        ((subBtn.current.value = "SUBMITTED"),
-        (subBtn.current.style.backgroundColor = "green"),
-        document.getElementById("myForm").reset())
-      )
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log("Form submitted successfully:", response.data);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+
   return (
     <div>
       <div className="hero-adjust mob-hero-adjust na-heading">
@@ -62,37 +121,35 @@ export default function Quote() {
             TransGlobal's treatment of information that you provide through this
             website
           </p>
-          <form id="myFormCustomer" onSubmit={handleSubmitCustomer}>
+          <form id="myFormCustomer" onSubmit={customerHandleSubmit}>
             <div className="form-row">
               <label>Full Name*</label>
               <input
                 type="text"
-                name="fullname"
-                id="fullname"
+                name="name"
+                id="name"
                 required
-                onChange={handleFormCustomer}
+                onChange={handleChangeCustomer}
               />
             </div>
             <div className="form-row">
               <label>Phone*</label>
               <input
                 type="text"
-                name="customerphone"
-                id="customerphone"
+                name="phone"
+                id="phone"
                 required
-                onChange={handleFormCustomer}
+                onChange={handleChangeCustomer}
               />
             </div>
             <div className="form-row">
               <label>Message*</label>
-              <textarea
-                name="customermessage"
-                id="customermessage"
-                cols="30"
-                rows="52"
-                style={{ resize: "none" }}
-                onChange={handleFormCustomer}
-              ></textarea>
+              <input
+                type="text"
+                name="message"
+                id="message"
+                onChange={handleChangeCustomer}
+              />
             </div>
             <div className="submit-row">
               <input
@@ -109,147 +166,161 @@ export default function Quote() {
             <div className="form">
               <h2 className="form-heading">For Driver Signup</h2>
 
-              <form id="myForm" onSubmit={handleSubmitDriver}>
+              <form id="myForm" onSubmit={handleSubmit}>
                 <div className="form-row">
-                  <label>First Name*</label>
+                  <label htmlFor="textInput1">First Name*</label>
                   <input
                     type="text"
-                    name="firstname"
-                    id="firstname"
-                    onChange={handleFormDriver}
+                    id="textInput1"
+                    name="textInput1"
+                    value={formData.textInput1}
+                    onChange={handleChange}
                     required
                   />
                 </div>
                 <div className="form-row">
-                  <label>Last Name*</label>
+                  <label htmlFor="textInput2">Last Name*</label>
                   <input
                     type="text"
-                    name="lastname"
-                    id="lastname"
+                    id="textInput2"
+                    name="textInput2"
+                    value={formData.textInput2}
+                    onChange={handleChange}
                     required
-                    onChange={handleFormDriver}
                   />
                 </div>
                 <div className="form-row">
-                  <label>Title</label>
+                  <label htmlFor="textInput3">Title</label>
                   <input
                     type="text"
-                    name="title"
-                    id="title"
-                    onChange={handleFormDriver}
+                    id="textInput3"
+                    name="textInput3"
+                    value={formData.textInput3}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="form-row">
-                  <label>Company*</label>
+                  <label htmlFor="textInput4">Company*</label>
                   <input
                     type="text"
-                    name="company"
-                    id="company"
+                    id="textInput4"
+                    name="textInput4"
+                    value={formData.textInput4}
+                    onChange={handleChange}
                     required
-                    onChange={handleFormDriver}
                   />
                 </div>
                 <div className="form-row">
-                  <label>E-mail*</label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    required
-                    onChange={handleFormDriver}
-                  />
-                </div>
-                <div className="form-row">
-                  <label>City*</label>
+                  <label htmlFor="textInput5">Email*</label>
                   <input
                     type="text"
-                    name="city"
-                    id="city"
+                    id="textInput5"
+                    name="textInput5"
+                    value={formData.textInput5}
+                    onChange={handleChange}
                     required
-                    onChange={handleFormDriver}
                   />
                 </div>
                 <div className="form-row">
-                  <label>State*</label>
+                  <label htmlFor="textInput6">Phone*</label>
                   <input
                     type="text"
-                    name="state"
-                    id="state"
+                    id="textInput6"
+                    name="textInput6"
+                    value={formData.textInput6}
+                    onChange={handleChange}
                     required
-                    onChange={handleFormDriver}
                   />
                 </div>
                 <div className="form-row">
-                  <label>MC or Dot Number*</label>
+                  <label htmlFor="textInput7">MC Number*</label>
                   <input
                     type="text"
-                    name="mcnumber"
-                    id="mcnumber"
+                    id="textInput7"
+                    name="textInput7"
+                    value={formData.textInput7}
+                    onChange={handleChange}
                     required
-                    onChange={handleFormDriver}
                   />
                 </div>
                 <div className="form-row">
-                  <label>Zip/Postal*</label>
-                  <input
-                    type="number"
-                    name="zip"
-                    id="zip"
-                    title="Invalid Zip"
-                    required
-                    onChange={handleFormDriver}
-                  />
-                </div>
-                <div className="form-row">
-                  <label>Phone*</label>
+                  <label htmlFor="textInput8">City*</label>
                   <input
                     type="text"
-                    pattern="[0-9]{10,15}"
-                    title="Enter Valid Number"
-                    name="phone"
-                    id="phone"
+                    id="textInput8"
+                    name="textInput8"
+                    value={formData.textInput8}
+                    onChange={handleChange}
                     required
-                    onChange={handleFormDriver}
                   />
                 </div>
                 <div className="form-row">
-                  <label>W-9 Form*</label>
+                  <label htmlFor="textInput9">State*</label>
+                  <input
+                    type="text"
+                    id="textInput9"
+                    name="textInput9"
+                    value={formData.textInput9}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-row">
+                  <label htmlFor="textInput9">Zip/Postal*</label>
+
+                  <input
+                    type="text"
+                    id="textInput10"
+                    name="textInput10"
+                    value={formData.textInput10}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="form-row">
+                  <label htmlFor="fileInput1">W9 Form*</label>
                   <input
                     type="file"
-                    name="w9form"
-                    id="w9form"
+                    id="fileInput1"
+                    name="fileInput1"
+                    onChange={(e) => handleFileChange(e, "fileInput1")}
+                    accept=".jpg, .jpeg, .png, .pdf, .doc, .docx"
                     required
-                    onChange={handleFormDriver}
                   />
                 </div>
                 <div className="form-row">
-                  <label>Certificate of Insurance*</label>
+                  <label htmlFor="fileInput2">Certificate of Insurance*</label>
                   <input
                     type="file"
-                    name="coi"
-                    id="coi"
+                    id="fileInput2"
+                    name="fileInput2"
+                    onChange={(e) => handleFileChange(e, "fileInput2")}
+                    accept=".jpg, .jpeg, .png, .pdf, .doc, .docx"
                     required
-                    onChange={handleFormDriver}
                   />
                 </div>
                 <div className="form-row">
-                  <label>MC Authority*</label>
+                  <label htmlFor="fileInput3">MC Authoriy*</label>
                   <input
                     type="file"
-                    name="mc"
-                    id="mc"
+                    id="fileInput3"
+                    name="fileInput3"
+                    onChange={(e) => handleFileChange(e, "fileInput3")}
+                    accept=".jpg, .jpeg, .png, .pdf, .doc, .docx"
                     required
-                    onChange={handleFormDriver}
                   />
                 </div>
                 <div className="form-row">
-                  <label>Notice of Assignment/Void Cheque*</label>
+                  <label htmlFor="fileInput4">
+                    Notice of Assignment or Void Cheque*
+                  </label>
                   <input
                     type="file"
-                    name="noa"
-                    id="noa"
+                    id="fileInput4"
+                    name="fileInput4"
+                    onChange={(e) => handleFileChange(e, "fileInput4")}
+                    accept=".jpg, .jpeg, .png, .pdf, .doc, .docx"
                     required
-                    onChange={handleFormDriver}
                   />
                 </div>
                 <div className="submit-row">

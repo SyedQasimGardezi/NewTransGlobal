@@ -16,6 +16,7 @@ import Owner from "./comp/Network/Owner/Owner";
 import Carrier from "./comp/Network/Carrier/Carrier";
 import Dispatch from "./comp/Services/Dispatch/Dispatch";
 import Admin from "./comp/AdminPage/Admin";
+import AdminDetail from "./comp/AdminPage/AdminDetail";
 function App() {
   return (
     <div className="App">
@@ -39,6 +40,7 @@ function App() {
             <Route path="/Carrier" element={<Carrier />}></Route>
             <Route path="/Contact" element={<Contact />}></Route>
             <Route path="/Admin" element={<Admin />}></Route>
+            <Route path="/AdminDetail" element={<AdminDetail />}></Route>
           </Routes>
           <Footer />
         </div>

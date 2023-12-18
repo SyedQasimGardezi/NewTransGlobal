@@ -1,9 +1,13 @@
-.admin-main {
-  padding-top: 20vh;
-  padding-left: 10vh;
-  background-color: var(--darkblue);
+.bars {
+  background-color: whitesmoke;
+  padding: 2.5% 10%;
+  width: 80%;
+  transition: all 1s;
 }
-.admin-list {
-  color: white;
+.bars:hover {
+  border: 1px solid black;
+}
+.bar-container {
   display: grid;
+  place-items: center;
 }
