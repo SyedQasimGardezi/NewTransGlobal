@@ -40,8 +40,12 @@ app.post("/customerPost", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
+app.get("/getCustomer", (req, res) => {
+  const findCustomer = customer.find();
+  res.json(findCustomer);
+});
 
-const YourModel = mongoose.model("YourModel", {
+const YourModel = mongoose.model("Driver", {
   firstname: String,
   lastname: String,
   title: String,
@@ -116,29 +120,22 @@ app.post(
 app.get("/getFile/:id/:fileIndex", async (req, res) => {
   try {
     const document = await YourModel.findById(req.params.id);
-
     if (!document) {
       return res.status(404).json({ error: "File not found" });
     }
-
     const fileIndex = parseInt(req.params.fileIndex, 10);
     let filePath = "";
 
-    switch (fileIndex) {
-      case 1:
-        filePath = document.fileInput1;
-        break;
-      case 2:
-        filePath = document.fileInput2;
-        break;
-      case 3:
-        filePath = document.fileInput3;
-        break;
-      case 4:
-        filePath = document.fileInput4;
-        break;
-      default:
-        return res.status(400).json({ error: "Invalid file index" });
+    if (fileIndex == 1) {
+      filePath = document.w9form;
+    } else if (fileIndex == 2) {
+      filePath = document.coi;
+    } else if (fileIndex == 3) {
+      filePath = document.mc;
+    } else if (fileIndex == 4) {
+      filePath = document.noa;
+    } else {
+      return res.status(400).json({ error: "Invalid file index" });
     }
 
     const fileStream = fs.createReadStream(filePath);
@@ -162,15 +159,6 @@ app.get("/getFile/:id/:fileIndex", async (req, res) => {
   }
 });
 
-app.get("/getData", async (req, res) => {
-  try {
-    const allData = await YourModel.find();
-    res.status(200).json(allData);
-  } catch (error) {
-    console.error("Error retrieving all data:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
-});
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

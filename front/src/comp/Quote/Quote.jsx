@@ -266,7 +266,7 @@ export default function Quote() {
                   />
                 </div>
                 <div className="form-row">
-                  <label htmlFor="textInput9">Zip/Postal*</label>
+                  <label htmlFor="textInput10">Zip/Postal*</label>
 
                   <input
                     type="text"
