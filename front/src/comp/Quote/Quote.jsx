@@ -30,7 +30,10 @@ export default function Quote() {
         customerformDataToSend
       );
 
-      console.log("Form submitted successfully:", response.data);
+      subBtnCustomer.current.style.backgroundColor = "green";
+      subBtnCustomer.current.value = "Submitted";
+      const formDriver = document.getElementById("myFormCustomer");
+      formDriver.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -97,7 +100,10 @@ export default function Quote() {
         }
       );
 
-      console.log("Form submitted successfully:", response.data);
+      subBtn.current.style.backgroundColor = "green";
+      subBtn.current.value = "Submitted";
+      const formDriver = document.getElementById("myForm");
+      formDriver.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
     }

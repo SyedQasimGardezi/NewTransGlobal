@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "alien-topic-408810",
+  "private_key_id": "c7225f5189ab350778215f5127492e15d5227cc2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCyY05K6vAKPMIQ\nVlhzqJ7wuKPWSBBnc2RygOg/DddJp83yaM7IGlUILmWzAWpOKUGZk4EFYdvBBGnp\nEtcMzPGtcYOwcb6X4WAjYodwt0C/RFYxl+5HWwNKvih0LRTnJlI8llkrCiemMwmk\nUhe1064X8SvYGMDrN7oJlrCqFHnbkOrEvHCBFfm95KtLALUx0yYh9QnTgwSqkokx\nlq557ViNFDyzQ+/8Sdkdgz67ZTQKbtdMQnjTwLrG3DrCVV+Otqo24QAigr6nxnfj\nO8Y2BCWdlKvyzzTBDRmU5b22RRJW5q7o4Cbosbw60fW6SeRfBiVT7S21VAmQa3K/\n69DL7jvLAgMBAAECggEAS4lfcrvPDxaxOkfFxpvlSZt1zNvRDm0/YHkTXvfWbNsA\niyA0R2lXDlLPP6BeymAP5h8eqA/LBQ2AZ3BR3Zq+z6nckI9pnFiT5AfpwCHo6dTf\nBrsF6/MvDqw85wzb6BFDC2LCuUXgijDcaVdVsOnEs2CtJyE8N53uSfckMbDf9MfO\nuVf+4ZPQetnJ4sZFTyL6XxVUCoSs5RbV1TyZ2mI4LxoYkNsuf9Z3YjfGUOghT/dn\nPx3drE2+v4wUsWwotpmdCaxZooiXc0Iulb2oqGOK6xYZW7VQvrQS0alQT1hvwSEy\nEY7ITUL9zHpuWfJnbhJuW3coMLpvQcb1yRJ8PRrAmQKBgQD2p8o4siDiTXZYWNid\nXuP+rGWPKTIckM09jU56pbQKmis685jyhZDFV1G7oneMV8+oPd7I1/dZ6ufGLG/+\n3ixAJyDAjeUVNBhRJnmacE5X8Mfabq8j1eD059Pjh0X8k3Tz4H12P0x5QL9jfM+O\n3Uz7iGTpoXUa5avuVgeSNCrnnQKBgQC5JWrNwPdOFNDpsaU/FNMwVT+Zg8btFZNq\nzYELoIbhbvkij+UAjc3QEP8hSe1GWxSIHiT83xfmcTJhQTZ9rSurNH/WWm6wXNog\nuTIHQn5Sc8pCT4cma/Qf+Us2gmtiY7C5vlkPgvr7KB7/rkg4jfwFdYrVaFsZd/HT\nGgd4tEb4hwKBgDOeK5iv1mfllBWrCjHs0MPUKjDKiz0lJH50Gu9ZzBLH7rIYlnJy\ndziFLIqa1m/dVIy93eikIZSEr1pupEVvE02doqIJT96fF1OsPJiQViTbM8fHkAls\n0fYOqe4cug3AgiIjYb4kQwnA/gyA6yLXtyuQgKXP7yTg2Zk4Eb+MAUqVAoGAb/Ip\n0+KbJYD8mHCrI6spzo2c+OtuuidTjT5YinkzVNdOmBE9O8qB6Q591NjoOKQVk//2\nCVezEcjb12Yg1niAcPI7YZYoW0apNSQFFdKkoqIUZ2fCpf6cC0EmsvzEhScV0hk/\nrFtb+cRWie4NCPUAryRVH5gLjSiy9RtF7TvDtb0CgYEAqUPc+Y/3mJ3Dn03ttosb\nFred1AoPvU0m0QkyUtYIZxwHCWGKFH8ANx2igG/He63ZPByrzEASPagN2HeICAcb\n3JtjGP7sf4yfwGaJcjNY18WpOzz0gTPSwSwEDdhJBEzyEnEEuswAQF+BrqcuRA3E\n9QTrPkVQT67SCYaPbtS9LLY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "uploadfiles@alien-topic-408810.iam.gserviceaccount.com",
+  "client_id": "111041182091994359353",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/uploadfiles%40alien-topic-408810.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

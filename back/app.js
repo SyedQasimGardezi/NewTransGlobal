@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -6,6 +5,7 @@ const multer = require("multer");
 const path = require("path");
 const dotenv = require("dotenv").config();
 const fs = require("fs");
+const cloudinary = require("./cloudinary");
 
 const app = express();
 app.use(cors());
@@ -65,10 +65,8 @@ const YourModel = mongoose.model("Driver", {
 const storage = multer.diskStorage({
   destination: "./uploads",
   filename: function (req, file, cb) {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
+    console.log(document);
+    cb(null, Date.now() + file.originalname + path.extname(file.originalname));
   },
 });
 
@@ -159,6 +157,6 @@ app.get("/getFile/:id/:fileIndex", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
